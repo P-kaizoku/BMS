@@ -1,6 +1,8 @@
 package models
 
 import (
+	"fmt"
+
 	"github.com/P-kaizoku/BMS/pkg/config"
 	"github.com/jinzhu/gorm"
 )
@@ -18,6 +20,7 @@ func init() {
 	config.Connect()
 	db = config.GetDB()
 	db.AutoMigrate(&Book{})
+	fmt.Println("DB is connected")
 }
 
 func (b *Book) CreateBook() *Book {
